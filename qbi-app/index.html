@@ -324,16 +324,6 @@
   }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-try{window.__qbiErr=JSON.parse(sessionStorage.getItem('qbiErr')||'[]');}catch(_){window.__qbiErr=[];}
-window.__qbiErr.push('--load--');
-function __qbiSave(){try{sessionStorage.setItem('qbiErr',JSON.stringify(window.__qbiErr.slice(-25)));}catch(_){}}
-function __qbiShow(){var b=document.getElementById('qbiDiag');if(!b){if(!document.body)return;b=document.createElement('div');b.id='qbiDiag';b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#3a1418;color:#ff8189;font:12px/1.4 monospace;padding:8px;white-space:pre-wrap;word-break:break-word;';document.body.appendChild(b);}b.textContent='DIAG: '+window.__qbiErr.slice(-14).join(' | ');__qbiSave();}
-window.__diag=function(m){try{window.__qbiErr.push(m);__qbiShow();}catch(_){}};
-window.addEventListener('error',function(e){window.__diag((e.message||'error')+' @'+String(e.filename||'').split('/').pop()+':'+e.lineno);});
-window.addEventListener('unhandledrejection',function(e){var r=e.reason;window.__diag('reject: '+((r&&r.message)||r));});
-window.addEventListener('DOMContentLoaded',function(){window.__diag('sb='+(typeof window.supabase)+' fn='+(typeof window.authSubmit));});
-</script>
 </head>
 <body>
 
@@ -1372,7 +1362,6 @@ async function authSubmit(evt){
   if(!email || pass.length < 6){ setAuthMsg('Введите email и пароль от 6 символов', 'err'); return false; }
   btn.disabled = true;
   setAuthMsg('Секунду...');
-  window.__diag&&__diag('submit '+authCurrentMode);
   try{
     if(authCurrentMode === 'signup'){
       const { error } = await sb.auth.signUp({ email, password: pass });
@@ -1381,12 +1370,10 @@ async function authSubmit(evt){
     const { error: e2 } = await sb.auth.signInWithPassword({ email, password: pass });
     if(e2) throw e2;
   }catch(err){
-    window.__diag&&__diag('catch '+(err&&err.message||err));
     setAuthMsg(authErrorText(err), 'err');
     btn.disabled = false;
     return false;
   }
-  window.__diag&&__diag('done ok');
   btn.disabled = false;
   return false;
 }
@@ -1415,7 +1402,6 @@ function showAuthScreen(){
   document.getElementById('onboardModal').classList.add('hidden');
 }
 function showAppAfterAuth(){
-  window.__diag&&__diag('showApp');
   authScreenEl.classList.add('hidden');
   document.getElementById('bottomNav').classList.remove('hidden');
   showTab('home');
@@ -1508,7 +1494,6 @@ async function saveDiagnostic(strength, growth, product){
 /* ============== INIT ============== */
 sb.auth.onAuthStateChange((event, session) => {
   currentUser = session ? session.user : null;
-  window.__diag&&__diag('authchange '+event+' '+(currentUser?currentUser.email:'null'));
   if(event === 'SIGNED_OUT'){ showAuthScreen(); return; }
   if(event === 'SIGNED_IN' || event === 'INITIAL_SESSION'){
     if(currentUser){ showAppAfterAuth(); } else { showAuthScreen(); }
