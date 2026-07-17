@@ -325,12 +325,14 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-window.__qbiErr=[];
-function __qbiShow(){var b=document.getElementById('qbiDiag');if(!b){if(!document.body)return;b=document.createElement('div');b.id='qbiDiag';b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#3a1418;color:#ff8189;font:12px/1.4 monospace;padding:8px;white-space:pre-wrap;word-break:break-word;';document.body.appendChild(b);}b.textContent='DIAG: '+window.__qbiErr.join(' | ');}
+try{window.__qbiErr=JSON.parse(sessionStorage.getItem('qbiErr')||'[]');}catch(_){window.__qbiErr=[];}
+window.__qbiErr.push('--load--');
+function __qbiSave(){try{sessionStorage.setItem('qbiErr',JSON.stringify(window.__qbiErr.slice(-25)));}catch(_){}}
+function __qbiShow(){var b=document.getElementById('qbiDiag');if(!b){if(!document.body)return;b=document.createElement('div');b.id='qbiDiag';b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#3a1418;color:#ff8189;font:12px/1.4 monospace;padding:8px;white-space:pre-wrap;word-break:break-word;';document.body.appendChild(b);}b.textContent='DIAG: '+window.__qbiErr.slice(-14).join(' | ');__qbiSave();}
 window.__diag=function(m){try{window.__qbiErr.push(m);__qbiShow();}catch(_){}};
-window.addEventListener('error',function(e){window.__qbiErr.push((e.message||'error')+' @'+String(e.filename||'').split('/').pop()+':'+e.lineno);__qbiShow();});
-window.addEventListener('unhandledrejection',function(e){var r=e.reason;window.__qbiErr.push('reject: '+((r&&r.message)||r));__qbiShow();});
-window.addEventListener('DOMContentLoaded',function(){window.__qbiErr.push('supabase='+(typeof window.supabase)+' | authSubmit='+(typeof window.authSubmit));__qbiShow();});
+window.addEventListener('error',function(e){window.__diag((e.message||'error')+' @'+String(e.filename||'').split('/').pop()+':'+e.lineno);});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;window.__diag('reject: '+((r&&r.message)||r));});
+window.addEventListener('DOMContentLoaded',function(){window.__diag('sb='+(typeof window.supabase)+' fn='+(typeof window.authSubmit));});
 </script>
 </head>
 <body>
@@ -346,7 +348,7 @@ window.addEventListener('DOMContentLoaded',function(){window.__qbiErr.push('supa
       <button class="auth-tab active" id="tabLogin" onclick="authMode('login')">Вход</button>
       <button class="auth-tab" id="tabSignup" onclick="authMode('signup')">Регистрация</button>
     </div>
-    <form id="authForm" onsubmit="return authSubmit(event)">
+    <form id="authForm" onsubmit="authSubmit(event);return false;">
       <div class="auth-field">
         <label for="authEmail">Email</label>
         <input id="authEmail" type="email" autocomplete="email" inputmode="email" placeholder="you@company.kz" required>
@@ -1363,7 +1365,7 @@ function setAuthMsg(text, kind){
   el.className = 'auth-msg' + (kind ? ' ' + kind : '');
 }
 async function authSubmit(evt){
-  evt.preventDefault();
+  if(evt && evt.preventDefault) evt.preventDefault();
   const email = document.getElementById('authEmail').value.trim();
   const pass = document.getElementById('authPass').value;
   const btn = document.getElementById('authSubmit');
