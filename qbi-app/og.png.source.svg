@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="-8%" r="95%">
+      <stop offset="0%" stop-color="#16232f"/>
+      <stop offset="55%" stop-color="#0b0d10"/>
+      <stop offset="100%" stop-color="#0b0d10"/>
+    </radialGradient>
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2f8fe0"/>
+      <stop offset="100%" stop-color="#39b6a0"/>
+    </linearGradient>
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26 0H0V26" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="6" y="6" width="1188" height="618" rx="18" fill="none" stroke="#262b33" stroke-width="2"/>
+
+  <rect x="70" y="66" width="62" height="62" rx="15" fill="url(#logo)"/>
+  <text x="101" y="112" font-family="Arial, sans-serif" font-size="40" font-weight="800" text-anchor="middle" fill="#0b0d10">Q</text>
+  <text x="150" y="97" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#f1efe9">QBI Analytics</text>
+  <text x="151" y="122" font-family="Arial, sans-serif" font-size="15" fill="#8a9099">Финансовое управление бизнеса</text>
+
+  <text x="72" y="252" font-family="'Courier New', monospace" font-size="19" letter-spacing="4" font-weight="700" fill="#39b6a0">ИИ-ДИАГНОСТИКА ФИНАНСОВ</text>
+
+  <text x="70" y="332" font-family="Arial, sans-serif" font-size="62" font-weight="800" fill="#f1efe9">Найдём слабые зоны</text>
+  <text x="70" y="404" font-family="Arial, sans-serif" font-size="62" font-weight="800" fill="#f1efe9">в финансах бизнеса</text>
+
+  <text x="72" y="476" font-family="Arial, sans-serif" font-size="27" fill="#cfd3d8">Бесплатно · 5 минут · заключение с рекомендацией</text>
+
+  <g>
+    <polygon points="1010,215 1160,365 1010,515 860,365" fill="none" stroke="#262b33" stroke-width="2"/>
+    <polygon points="1010,290 1085,365 1010,455 923,365" fill="none" stroke="#262b33" stroke-width="1.5"/>
+    <line x1="1010" y1="365" x2="1010" y2="215" stroke="#262b33" stroke-width="1.5"/>
+    <line x1="1010" y1="365" x2="1160" y2="365" stroke="#262b33" stroke-width="1.5"/>
+    <line x1="1010" y1="365" x2="1010" y2="515" stroke="#262b33" stroke-width="1.5"/>
+    <line x1="1010" y1="365" x2="860" y2="365" stroke="#262b33" stroke-width="1.5"/>
+    <polygon points="1010,252 1085,365 1010,492 927,365" fill="#39b6a0" fill-opacity="0.32" stroke="#39b6a0" stroke-width="3"/>
+    <circle cx="1010" cy="252" r="5" fill="#39b6a0"/>
+    <circle cx="1085" cy="365" r="5" fill="#39b6a0"/>
+    <circle cx="1010" cy="492" r="5" fill="#39b6a0"/>
+    <circle cx="927" cy="365" r="5" fill="#39b6a0"/>
+    <text x="1010" y="205" font-family="'Courier New', monospace" font-size="13" text-anchor="middle" fill="#8a9099">ДОХОДЫ</text>
+    <text x="1010" y="537" font-family="'Courier New', monospace" font-size="13" text-anchor="middle" fill="#8a9099">РАСХОДЫ</text>
+  </g>
+</svg>
