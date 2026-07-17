@@ -357,7 +357,7 @@ window.addEventListener('DOMContentLoaded',function(){window.__diag('sb='+(typeo
         <label for="authPass">Пароль</label>
         <input id="authPass" type="password" autocomplete="current-password" placeholder="Минимум 6 символов" required minlength="6">
       </div>
-      <button class="auth-submit" id="authSubmit" type="submit">Войти</button>
+      <button class="auth-submit" id="authSubmitBtn" type="submit">Войти</button>
     </form>
     <div class="auth-msg" id="authMsg"></div>
     <button class="auth-link" id="authForgot" type="button" onclick="authReset()">Забыли пароль?</button>
@@ -1355,7 +1355,7 @@ function authMode(mode){
   authCurrentMode = mode;
   document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
   document.getElementById('tabSignup').classList.toggle('active', mode === 'signup');
-  document.getElementById('authSubmit').textContent = mode === 'login' ? 'Войти' : 'Зарегистрироваться';
+  document.getElementById('authSubmitBtn').textContent = mode === 'login' ? 'Войти' : 'Зарегистрироваться';
   document.getElementById('authPass').setAttribute('autocomplete', mode === 'login' ? 'current-password' : 'new-password');
   setAuthMsg('');
 }
@@ -1368,7 +1368,7 @@ async function authSubmit(evt){
   if(evt && evt.preventDefault) evt.preventDefault();
   const email = document.getElementById('authEmail').value.trim();
   const pass = document.getElementById('authPass').value;
-  const btn = document.getElementById('authSubmit');
+  const btn = document.getElementById('authSubmitBtn');
   if(!email || pass.length < 6){ setAuthMsg('Введите email и пароль от 6 символов', 'err'); return false; }
   btn.disabled = true;
   setAuthMsg('Секунду...');
