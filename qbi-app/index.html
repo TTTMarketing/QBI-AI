@@ -49,12 +49,6 @@
   .topbar b{font-size:14.5px;}
   .topbar span{font-size:11.5px;color:var(--muted);display:block;}
 
-    background:linear-gradient(160deg, var(--panel2), var(--panel));
-    border:1px solid var(--border);
-    border-radius:10px;
-    padding:30px 24px;
-    margin-bottom:18px;
-  }
   .cta-main{
     display:flex;align-items:center;justify-content:center;gap:8px;
     background:var(--blue);
@@ -72,24 +66,12 @@
   .know-card b{font-size:13.5px;display:block;margin-bottom:6px;color:var(--teal);}
   .know-card ul{margin:0;padding-left:16px;color:var(--muted);font-size:12.3px;line-height:1.6;}
 
-    width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);
-    padding:14px 16px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;
-    display:flex;align-items:center;justify-content:space-between;
-  }
   .svc-card{background:var(--panel3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:10px;}
   .svc-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
   .svc-head b{font-size:14px;}
   .svc-price{font-family:var(--mono);font-size:13px;color:var(--orange);font-weight:700;white-space:nowrap;text-shadow:0 0 10px rgba(232,161,60,.5);}
   .svc-for{font-size:11.5px;color:var(--muted);margin:4px 0 6px;}
   .svc-desc{font-size:12.5px;color:#cfd3d8;line-height:1.5;margin:0;}
-
-    background:linear-gradient(160deg,#241a10,#14171c);
-    border:1px solid #4a3418;
-    border-radius:16px;padding:18px;
-  }
-    width:100%;background:var(--orange);border:none;color:#241a10;font-weight:800;
-    padding:12px;border-radius:11px;cursor:pointer;font-size:13.5px;
-  }
 
   .about-row{display:flex;gap:14px;align-items:center;background:#0e1114;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;}
   .about-row .stat{flex:1;text-align:center;}
@@ -128,6 +110,18 @@
   .search-empty{text-align:center;color:var(--muted);font-size:13px;margin-top:30px;}
 
   /* ---------- HERO BANNER (colorful) ---------- */
+  .hero-banner{
+    display:block;width:100%;text-align:left;cursor:pointer;
+    border:none;border-radius:14px;padding:20px 18px;margin-bottom:18px;
+    background:linear-gradient(135deg,#2166a8,#1a7d6e);
+    color:#fff;position:relative;overflow:hidden;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .hero-banner:hover{filter:brightness(1.06);}
+  .tlabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#eaf2fb;margin-bottom:9px;}
+  .ttext{font-size:15px;line-height:1.5;font-weight:600;color:#fff;margin-bottom:13px;}
+  .hb-cta{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;}
+  .hero-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:8px;}
 
 
 
@@ -186,18 +180,6 @@
   .expert-hero b{font-size:16.5px;display:block;margin-bottom:5px;}
   .expert-hero .eh-body span{font-size:11.5px;color:var(--muted);line-height:1.45;display:block;}
   .expert-hero .eh-arrow{font-size:20px;color:var(--teal);flex-shrink:0;}
-    background:#0e1114;border:1px solid var(--border);border-radius:8px;padding:13px 16px;
-    margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;width:100%;color:#fff;text-align:left;
-  }
-
-    background:#0e1114;border:1px solid var(--border);border-radius:8px;
-    padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;cursor:pointer;width:100%;text-align:left;color:var(--text);
-  }
-
-    position:relative;background:#0e1114;border:1px solid var(--border);border-radius:8px;padding:16px 12px 12px;text-align:left;cursor:pointer;color:var(--text);
-    background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-    background-size:9px 9px;
-  }
 
   /* ---------- LIBRARY SWIPE SCREEN ---------- */
   .lib-screen{display:none;flex-direction:column;height:100vh;height:100dvh;max-width:640px;margin:0 auto;padding:16px 12px;}
@@ -238,10 +220,6 @@
   .lib-round{width:44px;height:44px;border-radius:8px;background:var(--panel3);border:1px solid var(--border);color:var(--text);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
   .lib-round.shuffle{width:50px;height:50px;background:var(--blue);border:none;color:#fff;}
   .lib-hint{text-align:center;font-size:10.5px;color:var(--muted);margin-top:6px;}
-    position:fixed;left:0;right:0;bottom:0;
-    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-    background:linear-gradient(0deg, var(--bg) 60%, transparent);
-  }
 
   /* ---------- CHAT ---------- */
   .chat-screen{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:640px;margin:0 auto;padding:16px 12px;}
@@ -305,16 +283,80 @@
   ::-webkit-scrollbar{width:6px;}
   ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
 
+  /* ---------- AUTH ---------- */
+  .auth-screen{position:fixed;inset:0;z-index:300;overflow-y:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom));background:radial-gradient(1000px 500px at 50% -10%, #14202c 0%, var(--bg) 55%);}
+  .auth-screen.hidden{display:none;}
+  .auth-card{width:100%;max-width:360px;background:#0e1114;border:1px solid var(--border);border-radius:16px;padding:26px 22px;}
+  .auth-logo{display:flex;align-items:center;gap:10px;margin-bottom:20px;justify-content:center;}
+  .auth-logo .logo{width:40px;height:40px;}
+  .auth-logo b{font-size:16px;}
+  .auth-logo span{font-size:11px;color:var(--muted);display:block;}
+  .auth-tabs{display:flex;gap:6px;margin-bottom:18px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:4px;}
+  .auth-tab{flex:1;padding:9px;border:none;background:none;color:var(--muted);font-size:13px;font-weight:700;border-radius:7px;cursor:pointer;font-family:inherit;}
+  .auth-tab.active{background:var(--panel3);color:var(--text);}
+  .auth-field{margin-bottom:12px;}
+  .auth-field label{display:block;font-size:11.5px;color:var(--muted);margin-bottom:5px;}
+  .auth-field input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:12px 13px;border-radius:9px;font-size:16px;outline:none;font-family:inherit;}
+  .auth-field input:focus{border-color:var(--blue);}
+  .auth-submit{width:100%;background:var(--blue);color:#fff;border:none;border-radius:9px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px;font-family:var(--mono);letter-spacing:.02em;}
+  .auth-submit:disabled{opacity:.5;cursor:default;}
+  .auth-msg{font-size:12px;margin-top:12px;text-align:center;line-height:1.45;min-height:16px;}
+  .auth-msg.err{color:#ff8189;}
+  .auth-msg.ok{color:#8fd4bf;}
+  .auth-link{background:none;border:none;color:var(--blue);font-size:12px;cursor:pointer;margin-top:14px;display:block;width:100%;text-align:center;font-family:inherit;}
+  .auth-foot{text-align:center;font-size:10.5px;color:var(--muted);margin-top:16px;line-height:1.5;}
+
+  /* ---------- CABINET ---------- */
+  .cab-head{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+  .cab-ava{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b0d10;font-size:18px;flex-shrink:0;}
+  .cab-email{font-size:13.5px;font-weight:700;word-break:break-all;}
+  .cab-since{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:2px;}
+  .cab-logout{margin-left:auto;background:var(--panel3);border:1px solid var(--border);color:var(--muted);font-size:11.5px;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap;font-family:inherit;}
+  .cab-empty{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:24px 18px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6;}
+  .cab-last{background:#0e1114;border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:14px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .cab-hist-item{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+  .cab-date{font-family:var(--mono);font-size:10.5px;color:var(--muted);}
+  .cab-prod{font-size:13px;margin-top:4px;}
+  .cab-prod b{color:var(--teal);}
+
   @media(max-width:480px){
     .know-grid{grid-template-columns:1fr;}
   }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
-<!-- ============ HOME SCREEN ============ -->
+<!-- ============ AUTH SCREEN ============ -->
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="logo">Q</div>
+      <div><b>QBI Analytics</b><span>Вход в личный кабинет</span></div>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabLogin" onclick="authMode('login')">Вход</button>
+      <button class="auth-tab" id="tabSignup" onclick="authMode('signup')">Регистрация</button>
+    </div>
+    <form id="authForm" onsubmit="return authSubmit(event)">
+      <div class="auth-field">
+        <label for="authEmail">Email</label>
+        <input id="authEmail" type="email" autocomplete="email" inputmode="email" placeholder="you@company.kz" required>
+      </div>
+      <div class="auth-field">
+        <label for="authPass">Пароль</label>
+        <input id="authPass" type="password" autocomplete="current-password" placeholder="Минимум 6 символов" required minlength="6">
+      </div>
+      <button class="auth-submit" id="authSubmit" type="submit">Войти</button>
+    </form>
+    <div class="auth-msg" id="authMsg"></div>
+    <button class="auth-link" id="authForgot" type="button" onclick="authReset()">Забыли пароль?</button>
+    <div class="auth-foot">Диагностика финансового управления QBI Analytics</div>
+  </div>
+</div>
+
 <!-- ============ ONBOARDING POPUP ============ -->
-<div id="onboardModal" class="onboard-overlay">
+<div id="onboardModal" class="onboard-overlay hidden">
   <div class="onboard-card ticked ac-blue">
     <div class="onboard-step" data-step="1">
       <div class="ob-badge" style="background:rgba(47,143,224,.18);">💬</div>
@@ -495,12 +537,31 @@
   <div class="bottom-cta-space"></div>
 </div>
 
+<!-- ============ TAB: CABINET ============ -->
+<div id="tab-cabinet" class="wrap tab-screen hidden">
+  <div class="topbar">
+    <div class="logo">Q</div>
+    <div><b>Личный кабинет</b><span>Ваши диагностики</span></div>
+  </div>
+  <div class="cab-head">
+    <div class="cab-ava" id="cabAva">?</div>
+    <div>
+      <div class="cab-email" id="cabEmail">—</div>
+      <div class="cab-since" id="cabSince"></div>
+    </div>
+    <button class="cab-logout" onclick="doLogout()">Выйти</button>
+  </div>
+  <div id="cabBody"></div>
+  <div class="bottom-cta-space"></div>
+</div>
+
 <!-- ============ BOTTOM NAV ============ -->
 <div class="bottom-nav" id="bottomNav">
   <button class="nav-btn active" data-tab="home" onclick="showTab('home')"><span class="ni">🏠</span>Главная</button>
   <button class="nav-btn" data-tab="chat" onclick="resumeOrStartChat()"><span class="ni">💬</span>ИИ</button>
   <button class="nav-btn" data-tab="library" onclick="showTab('library')"><span class="ni">🏢</span>QBI</button>
   <button class="nav-btn" data-tab="services" onclick="showTab('services')"><span class="ni">🧩</span>Услуги</button>
+  <button class="nav-btn" data-tab="cabinet" onclick="showTab('cabinet')"><span class="ni">👤</span>Кабинет</button>
 </div>
 
 <!-- ============ CHAT SCREEN ============ -->
@@ -556,6 +617,12 @@
 </div>
 
 <script>
+/* ============== SUPABASE ============== */
+const SUPABASE_URL = 'https://gdwoutacbjdtmtyymlkw.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_8PA6iq9TF0OvQZeF7-94Eg_A7Ef2jJU';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let currentUser = null;
+
 /* ============== SYSTEM PROMPT ============== */
 const SYSTEM_BASE = `Ты — ИИ-консультант QBI Analytics, обученный на методологии Максата Калибекова (19 лет в финансах, основатель QBI Analytics, работал с Magnum, RG Brands, Азбука Вкуса и 110+ компаниями). Ты общаешься с собственником или руководителем бизнеса внутри веб-приложения QBI.
 
@@ -898,7 +965,7 @@ function setTipOfDay(){
 /* ============== NAV ============== */
 let activeTab = 'home';
 function hideAllTabs(){
-  ['home','library','services'].forEach(t => document.getElementById('tab-' + t).classList.add('hidden'));
+  ['home','library','services','cabinet'].forEach(t => document.getElementById('tab-' + t).classList.add('hidden'));
 }
 function showTab(name){
   activeTab = name;
@@ -908,6 +975,7 @@ function showTab(name){
   document.getElementById('bottomNav').classList.remove('hidden');
   document.getElementById('tab-' + name).classList.remove('hidden');
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  if(name === 'cabinet') loadCabinet();
 }
 function resumeOrStartChat(){
   // Возврат в существующий диалог без сброса; новый — только если диалога ещё не было
@@ -1019,7 +1087,7 @@ function handleBotReply(rawReply){
   messages.push({role:'assistant', content: rawReply});
 
   if(levelMatch){ updateProgressUI(); addLevelToast(levelMatch[1]); }
-  if(profileData){ addProfileCard(profileData.strength, profileData.growth, profileData.product); }
+  if(profileData){ addProfileCard(profileData.strength, profileData.growth, profileData.product); saveDiagnostic(profileData.strength, profileData.growth, profileData.product); }
   if(readyForContact && !leadCaptured){ addLeadForm(); }
 }
 function goHome(){
@@ -1034,6 +1102,7 @@ function obNext(){
   document.querySelectorAll('.ob-dots .d')[obStep - 1].classList.remove('active');
   if(obStep >= 3){
     document.getElementById('onboardModal').classList.add('hidden');
+    localStorage.setItem('qbi_onboarded','1');
     return;
   }
   obStep++;
@@ -1268,8 +1337,168 @@ if(window.visualViewport){
 }
 inputEl.addEventListener('focus', () => setTimeout(fitViewport, 300));
 
+/* ============== AUTH ============== */
+let authCurrentMode = 'login';
+const authScreenEl = document.getElementById('authScreen');
+
+function authMode(mode){
+  authCurrentMode = mode;
+  document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
+  document.getElementById('tabSignup').classList.toggle('active', mode === 'signup');
+  document.getElementById('authSubmit').textContent = mode === 'login' ? 'Войти' : 'Зарегистрироваться';
+  document.getElementById('authPass').setAttribute('autocomplete', mode === 'login' ? 'current-password' : 'new-password');
+  setAuthMsg('');
+}
+function setAuthMsg(text, kind){
+  const el = document.getElementById('authMsg');
+  el.textContent = text || '';
+  el.className = 'auth-msg' + (kind ? ' ' + kind : '');
+}
+async function authSubmit(evt){
+  evt.preventDefault();
+  const email = document.getElementById('authEmail').value.trim();
+  const pass = document.getElementById('authPass').value;
+  const btn = document.getElementById('authSubmit');
+  if(!email || pass.length < 6){ setAuthMsg('Введите email и пароль от 6 символов', 'err'); return false; }
+  btn.disabled = true;
+  setAuthMsg('Секунду...');
+  try{
+    if(authCurrentMode === 'signup'){
+      const { error } = await sb.auth.signUp({ email, password: pass });
+      if(error) throw error;
+    }
+    const { error: e2 } = await sb.auth.signInWithPassword({ email, password: pass });
+    if(e2) throw e2;
+  }catch(err){
+    setAuthMsg(authErrorText(err), 'err');
+    btn.disabled = false;
+    return false;
+  }
+  btn.disabled = false;
+  return false;
+}
+async function authReset(){
+  const email = document.getElementById('authEmail').value.trim();
+  if(!email){ setAuthMsg('Введите email выше, затем нажмите «Забыли пароль?»', 'err'); return; }
+  const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+  setAuthMsg(error ? authErrorText(error) : 'Письмо для сброса пароля отправлено на ' + email, error ? 'err' : 'ok');
+}
+function authErrorText(err){
+  const m = (err && err.message ? err.message : '').toLowerCase();
+  if(m.includes('invalid login')) return 'Неверный email или пароль';
+  if(m.includes('already registered') || m.includes('already been registered')) return 'Такой email уже зарегистрирован — войдите';
+  if(m.includes('password') && m.includes('6')) return 'Пароль должен быть не короче 6 символов';
+  if(m.includes('rate') || m.includes('limit')) return 'Слишком много попыток. Подождите минуту';
+  return err && err.message ? err.message : 'Не удалось выполнить. Попробуйте ещё раз';
+}
+async function doLogout(){ await sb.auth.signOut(); }
+
+function showAuthScreen(){
+  authScreenEl.classList.remove('hidden');
+  hideAllTabs();
+  document.getElementById('bottomNav').classList.add('hidden');
+  document.getElementById('screen-chat').classList.add('hidden');
+  document.getElementById('screen-library').classList.remove('active');
+  document.getElementById('onboardModal').classList.add('hidden');
+}
+function showAppAfterAuth(){
+  authScreenEl.classList.add('hidden');
+  document.getElementById('bottomNav').classList.remove('hidden');
+  showTab('home');
+  setTipOfDay();
+  if(!localStorage.getItem('qbi_onboarded')){
+    document.getElementById('onboardModal').classList.remove('hidden');
+  }
+}
+
+/* ============== CABINET ============== */
+function escapeHtml(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmtDate(iso){
+  try{ const d = new Date(iso); return d.toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric'}) + ' ' + d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}); }
+  catch(e){ return ''; }
+}
+async function loadCabinet(){
+  const body = document.getElementById('cabBody');
+  if(currentUser){
+    document.getElementById('cabEmail').textContent = currentUser.email || '—';
+    document.getElementById('cabAva').textContent = (currentUser.email || '?').charAt(0).toUpperCase();
+    document.getElementById('cabSince').textContent = currentUser.created_at ? 'с ' + fmtDate(currentUser.created_at) : '';
+  }
+  body.innerHTML = '<div class="cab-empty">Загрузка...</div>';
+  const { data, error } = await sb.from('diagnostics').select('*').order('created_at', { ascending: false });
+  if(error){ body.innerHTML = '<div class="cab-empty">Не удалось загрузить историю.</div>'; return; }
+  if(!data || !data.length){
+    body.innerHTML = '<div class="cab-empty">Вы ещё не проходили диагностику.<br>Откройте раздел «ИИ» и пройдите разбор — результат сохранится здесь.</div>';
+    const b = document.createElement('button');
+    b.className = 'cta-main'; b.style.marginTop = '14px'; b.textContent = '💬 Пройти диагностику';
+    b.onclick = () => startChat('general');
+    body.appendChild(b);
+    return;
+  }
+  const last = data[0];
+  const scores = last.scores || {};
+  body.innerHTML = '';
+  const card = document.createElement('div');
+  card.className = 'cab-last ticked ac-teal';
+  const radarBox = document.createElement('div');
+  radarBox.className = 'radar-full';
+  card.appendChild(radarBox);
+  const insight = document.createElement('div');
+  insight.className = 'profile-insight';
+  insight.innerHTML = '<div class="row"><span>↗</span><span><b style="color:#f1efe9">Сильная сторона:</b> ' + escapeHtml(last.strength) + '</span></div>'
+    + '<div class="row"><span>⚠</span><span><b style="color:#f1efe9">Зона роста:</b> ' + escapeHtml(last.growth) + '</span></div>';
+  card.appendChild(insight);
+  const prod = document.createElement('div');
+  prod.className = 'profile-product';
+  prod.innerHTML = '<span style="color:var(--muted)">рекомендуем</span><b>' + escapeHtml(last.product) + '</b>';
+  card.appendChild(prod);
+  body.appendChild(card);
+  renderRadar(radarBox, {revenue:+scores.revenue||0, costs:+scores.costs||0, capital:+scores.capital||0, management:+scores.management||0}, 180, true);
+  const again = document.createElement('button');
+  again.className = 'cta-main';
+  again.textContent = '🔄 Пройти заново';
+  again.onclick = () => startChat('general');
+  body.appendChild(again);
+  if(data.length > 1){
+    const title = document.createElement('div');
+    title.className = 'section-title';
+    title.textContent = 'История';
+    body.appendChild(title);
+    data.slice(1).forEach(d => {
+      const it = document.createElement('div');
+      it.className = 'cab-hist-item';
+      it.innerHTML = '<div class="cab-date">' + fmtDate(d.created_at) + '</div><div class="cab-prod">Рекомендация: <b>' + escapeHtml(d.product) + '</b></div>';
+      body.appendChild(it);
+    });
+  }
+}
+async function saveDiagnostic(strength, growth, product){
+  if(!currentUser) return;
+  const transcript = messages.map(m => {
+    let text = '';
+    if(typeof m.content === 'string') text = m.content;
+    else if(Array.isArray(m.content)) text = m.content.filter(b => b && b.type === 'text').map(b => b.text).join(' ') || '(вложение)';
+    return { role: m.role, text };
+  });
+  const { error } = await sb.from('diagnostics').insert({
+    user_id: currentUser.id,
+    scores: zoneScores,
+    strength: strength,
+    growth: growth,
+    product: product,
+    transcript: transcript
+  });
+  if(error) console.error('save diagnostic failed', error);
+}
+
 /* ============== INIT ============== */
-setTipOfDay();
+sb.auth.onAuthStateChange((event, session) => {
+  currentUser = session ? session.user : null;
+  if(event === 'SIGNED_OUT'){ showAuthScreen(); return; }
+  if(event === 'SIGNED_IN' || event === 'INITIAL_SESSION'){
+    if(currentUser){ showAppAfterAuth(); } else { showAuthScreen(); }
+  }
+});
 </script>
 </body>
 </html>
