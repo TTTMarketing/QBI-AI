@@ -3,7 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QBI — Финансовый ИИ-консультант</title>
+<title>QBI Analytics — ИИ-диагностика финансов бизнеса за 5 минут</title>
+<meta name="description" content="Бесплатная ИИ-диагностика финансового управления вашего бизнеса. За 5 минут найдём слабые зоны в доходах, расходах и обороте — с рекомендацией от экспертов QBI Analytics.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232f8fe0'/><text x='50' y='71' font-size='62' font-family='Segoe UI,Arial,sans-serif' font-weight='bold' text-anchor='middle' fill='%230b0d10'>Q</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QBI Analytics">
+<meta property="og:title" content="ИИ-диагностика финансов бизнеса за 5 минут">
+<meta property="og:description" content="Пройдите бесплатную диагностику: найдём слабые зоны в доходах, расходах и обороте — с рекомендацией от экспертов QBI Analytics.">
+<meta property="og:url" content="https://qbi-ai.vercel.app/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://qbi-ai.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ИИ-диагностика финансов бизнеса за 5 минут">
+<meta name="twitter:description" content="Найдём слабые зоны в доходах, расходах и обороте — с рекомендацией от QBI Analytics.">
+<meta name="twitter:image" content="https://qbi-ai.vercel.app/og.png">
 <style>
   :root{
     --bg:#0b0d10;
@@ -1087,7 +1101,7 @@ function handleBotReply(rawReply){
   messages.push({role:'assistant', content: rawReply});
 
   if(levelMatch){ updateProgressUI(); addLevelToast(levelMatch[1]); }
-  if(profileData){ addProfileCard(profileData.strength, profileData.growth, profileData.product); saveDiagnostic(profileData.strength, profileData.growth, profileData.product); }
+  if(profileData){ window.__lastProduct = profileData.product; addProfileCard(profileData.strength, profileData.growth, profileData.product); saveDiagnostic(profileData.strength, profileData.growth, profileData.product); }
   if(readyForContact && !leadCaptured){ addLeadForm(); }
 }
 function goHome(){
@@ -1184,15 +1198,25 @@ function addLeadForm(){
   `;
   chatEl.appendChild(wrap);
   scrollDown();
-  document.getElementById('lf-submit').onclick = () => {
+  document.getElementById('lf-submit').onclick = async () => {
     const name = document.getElementById('lf-name').value.trim();
     const contact = document.getElementById('lf-contact').value.trim();
     if(!name || !contact) return;
+    const submitBtn = document.getElementById('lf-submit');
+    submitBtn.disabled = true;
+    try{
+      await sb.auth.updateUser({ data: {
+        lead_name: name,
+        lead_contact: contact,
+        lead_product: (window.__lastProduct || ''),
+        lead_captured_at: new Date().toISOString()
+      } });
+    }catch(e){ console.error('lead save failed', e); }
     wrap.remove();
     addMsg('user', `${name} · ${contact}`);
     const summary = document.createElement('div');
     summary.className = 'msg lead';
-    summary.textContent = '✓ Заявка передана команде QBI. С вами свяжутся в ближайшее время.\n\n(В реальном боте здесь профиль лида — сфера, оборот, боль, уровень зрелости, рекомендованный продукт — автоматически уходит в CRM отдела продаж.)';
+    summary.textContent = '✓ Заявка сохранена. Эксперт QBI свяжется с вами в ближайшее время.';
     chatEl.appendChild(summary);
     scrollDown();
     leadCaptured = true;
